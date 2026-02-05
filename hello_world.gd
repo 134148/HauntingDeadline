@@ -12,3 +12,5 @@ func _process(delta: float) -> void:
 	print("Hello world!")
 
 	print("Daria je bent een zeehond")
+	print("Daria je bent een zeehond")
+	
