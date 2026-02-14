@@ -1,5 +1,7 @@
 extends Node2D
 
+#!!!!!!!deze code heb ik van Daria's link in ons klad, dus hij is gwn van internet!
+
 # Declare member variables here.
 var player
 var enemies
