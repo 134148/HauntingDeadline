@@ -1,6 +1,5 @@
 extends Node3D
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -8,9 +7,15 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	for n in 9:
+		if n < 3:
+			continue
+		print(n)
 	print("Hello world!")
 	print("Hello world!")
 
 	print("Daria je bent een zeehond")
 	print("Daria je bent een zeehond")
+	
+
 	
