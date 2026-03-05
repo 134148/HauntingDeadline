@@ -19,4 +19,15 @@ func _physics_process(delta):
 		velocity = velocity.move_toward(Vector2.ZERO, movement_speed)
 		if %animatie_speler.animation != "Idle": %animatie_speler.animation = "Idle"
 		
+	#flip haar
+	if character_direction.x > 0: %animatie_haar.flip_h = false
+	elif character_direction.x < 0: %animatie_haar.flip_h = true
+	
+	if character_direction:
+		velocity = character_direction * movement_speed
+		if %animatie_haar.animation != "hair_walking": %animatie_haar.animation = "hair_walking"
+	else:
+		velocity = velocity.move_toward(Vector2.ZERO, movement_speed)
+		if %animatie_haar.animation != "hair_idle": %animatie_haar.animation = "hair_idle"
+		
 	move_and_slide()
