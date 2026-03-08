@@ -391,32 +391,32 @@ height = 16.0
 motion_mode = 1
 script = ExtResource("1_8nhrf")
 
-[node name="animatie_robert" type="AnimatedSprite2D" parent="." unique_id=104888703]
+[node name="animatie_kiara" type="AnimatedSprite2D" parent="." unique_id=104888703]
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_lplo0")
 animation = &"Idle"
 autoplay = "Idle"
 frame_progress = 0.67636126
 
-[node name="animatie_haar_r" type="AnimatedSprite2D" parent="." unique_id=683366380]
+[node name="animatie_haar_k" type="AnimatedSprite2D" parent="." unique_id=683366380]
 unique_name_in_owner = true
 position = Vector2(0, 2)
 sprite_frames = SubResource("SpriteFrames_4ro78")
 animation = &"hair_walking"
 
-[node name="animatie_shirt_r" type="AnimatedSprite2D" parent="." unique_id=640264653]
+[node name="animatie_shirt_k" type="AnimatedSprite2D" parent="." unique_id=640264653]
 unique_name_in_owner = true
 position = Vector2(0, 8)
 sprite_frames = SubResource("SpriteFrames_vnwv4")
 animation = &"shirt_idle"
 
-[node name="animatie_broek_r" type="AnimatedSprite2D" parent="." unique_id=969920116]
+[node name="animatie_broek_k" type="AnimatedSprite2D" parent="." unique_id=969920116]
 unique_name_in_owner = true
 position = Vector2(0, 12)
 sprite_frames = SubResource("SpriteFrames_magk8")
 animation = &"broek_idle"
 
-[node name="animatie_schoenen_r" type="AnimatedSprite2D" parent="." unique_id=1210258693]
+[node name="animatie_schoenen_k" type="AnimatedSprite2D" parent="." unique_id=1210258693]
 unique_name_in_owner = true
 position = Vector2(0, 16)
 sprite_frames = SubResource("SpriteFrames_pdh7q")
