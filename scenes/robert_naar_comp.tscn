@@ -3586,10 +3586,24 @@ offset_bottom = -18.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 55
-text = "Oh nee! het is al elf uur,  ik moet nog werken aan mijn opracht.  Ik moet nu naar mijn computer gaan."
+text = "Oh nee! Ik moet nog zoveel doen. Potverdriedubbeltjes. Helemaal vergeten dat ik informatica had! 
+"
 label_settings = SubResource("LabelSettings_we0q3")
 vertical_alignment = 1
 autowrap_mode = 3
+
+[node name="Label" type="Label" parent="CanvasLayer/TextDisplay/TheTekst" unique_id=850450683]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+focus_neighbor_bottom = NodePath("..")
+focus_previous = NodePath("..")
+text = "
+
+
+
+Objective: ga naar de computer"
+vertical_alignment = 2
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=2080757283]
 tile_map_data = PackedByteArray("AAD9//v/AAAIAAAAAAD9//z/AAAIAAEAAAD9//3/BAAKAAMAAFD9//7/BAALAAMAAFD9////BAAMAAMAAFD9/wAAAAAJAAEAAAD9/wEAAAAJAAEAAAD+//v/AAAIAAAAAAD+//z/AAAIAAEAAAD+//3/BAAKAAIAAFD+//7/BAALAAIAAFD+////BAAMAAIAAFD+/wAAAAAJAAEAAAD+/wEAAAAJAAEAAAD///v/AAAIAAAAAAD///z/AAAIAAEAAAD///3/AAAJAAEAAAD///7/AAAJAAEAAAD/////AAAJAAEAAAD//wAAAAAJAAEAAAD//wEAAAAJAAEAAAAAAPv/AAAIAAAAAAAAAPz/AAAIAAEAAAAAAP3/AAAJAAEAAAAAAP7/AAAJAAEAAAAAAP//AAAJAAEAAAAAAAAAAAAJAAEAAAAAAAEAAAAJAAEAAAABAPv/AAAIAAAAAAABAPz/AAAIAAEAAAABAP3/AAAJAAEAAAABAP7/AAAJAAEAAAABAP//AAAJAAEAAAABAAAAAAAJAAEAAAABAAEAAAAJAAEAAAACAPv/AAAIAAAAAAACAPz/AAAIAAEAAAACAP3/AAAJAAEAAAACAP7/AAAJAAEAAAACAP//AAAJAAEAAAACAAAAAAAJAAEAAAACAAEAAAAJAAEAAAD9/wIAAAAJAAEAAAD+/wIAAAAJAAEAAAD//wIAAAAJAAEAAAAAAAIAAAAJAAEAAAABAAIAAAAJAAEAAAACAAIAAAAJAAEAAAA=")
