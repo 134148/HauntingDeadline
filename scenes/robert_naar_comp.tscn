@@ -10,6 +10,12 @@
 [ext_resource type="Texture2D" uid="uid://crfsgn6jvsoqx" path="res://assets/Interior free/TopDownHouse_FurnitureState2.png" id="8_akcei"]
 [ext_resource type="Texture2D" uid="uid://6m2y8vhac752" path="res://assets/Interior free/TopDownHouse_SmallItems.png" id="9_kleng"]
 
+[sub_resource type="Theme" id="Theme_we0q3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_we0q3"]
+paragraph_spacing = 1.0
+font_size = 23
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dp014"]
 texture = ExtResource("3_0k6sp")
 0:0/0 = 0
@@ -3529,17 +3535,17 @@ collision_mask = 5
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2067608149]
 
 [node name="TijdDisplay" type="Panel" parent="CanvasLayer" unique_id=174104163]
-anchors_preset = 3
+anchors_preset = 1
 anchor_left = 1.0
-anchor_top = 1.0
 anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -217.0
-offset_top = -108.0
-offset_right = -33.0
-offset_bottom = -28.0
+offset_left = -202.0
+offset_top = 16.0
+offset_right = -18.0
+offset_bottom = 98.0
 grow_horizontal = 0
-grow_vertical = 0
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme = SubResource("Theme_we0q3")
 
 [node name="TijdText" type="Label" parent="CanvasLayer/TijdDisplay" unique_id=756207106]
 layout_mode = 1
@@ -3552,6 +3558,38 @@ theme_override_font_sizes/font_size = 55
 text = "23:00"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="TextDisplay" type="Panel" parent="CanvasLayer" unique_id=570826561]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -719.0
+offset_top = -165.0
+offset_right = -32.0
+offset_bottom = -34.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="TheTekst" type="Label" parent="CanvasLayer/TextDisplay" unique_id=959127577]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 39.0
+offset_top = 16.0
+offset_right = -39.0
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 55
+text = "Oh nee! het is al elf uur,  ik moet nog werken aan mijn opracht.  Ik moet nu naar mijn computer gaan."
+label_settings = SubResource("LabelSettings_we0q3")
+vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=2080757283]
 tile_map_data = PackedByteArray("AAD9//v/AAAIAAAAAAD9//z/AAAIAAEAAAD9//3/BAAKAAMAAFD9//7/BAALAAMAAFD9////BAAMAAMAAFD9/wAAAAAJAAEAAAD9/wEAAAAJAAEAAAD+//v/AAAIAAAAAAD+//z/AAAIAAEAAAD+//3/BAAKAAIAAFD+//7/BAALAAIAAFD+////BAAMAAIAAFD+/wAAAAAJAAEAAAD+/wEAAAAJAAEAAAD///v/AAAIAAAAAAD///z/AAAIAAEAAAD///3/AAAJAAEAAAD///7/AAAJAAEAAAD/////AAAJAAEAAAD//wAAAAAJAAEAAAD//wEAAAAJAAEAAAAAAPv/AAAIAAAAAAAAAPz/AAAIAAEAAAAAAP3/AAAJAAEAAAAAAP7/AAAJAAEAAAAAAP//AAAJAAEAAAAAAAAAAAAJAAEAAAAAAAEAAAAJAAEAAAABAPv/AAAIAAAAAAABAPz/AAAIAAEAAAABAP3/AAAJAAEAAAABAP7/AAAJAAEAAAABAP//AAAJAAEAAAABAAAAAAAJAAEAAAABAAEAAAAJAAEAAAACAPv/AAAIAAAAAAACAPz/AAAIAAEAAAACAP3/AAAJAAEAAAACAP7/AAAJAAEAAAACAP//AAAJAAEAAAACAAAAAAAJAAEAAAACAAEAAAAJAAEAAAD9/wIAAAAJAAEAAAD+/wIAAAAJAAEAAAD//wIAAAAJAAEAAAAAAAIAAAAJAAEAAAABAAIAAAAJAAEAAAACAAIAAAAJAAEAAAA=")
