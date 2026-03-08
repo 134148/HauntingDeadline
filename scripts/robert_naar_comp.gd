@@ -9,3 +9,15 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+	
+ # Replace with function body.
+
+ # Replace with function body.
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.name == "Robert":
+		get_tree().change_scene_to_file("res://scenes/minigame_1.tscn") # Replace with function body.
+
+
+	
