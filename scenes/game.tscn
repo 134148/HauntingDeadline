@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://3cohal6jh4ca"]
 
-[ext_resource type="PackedScene" uid="uid://btvgexdp7qt5u" path="res://scenes/speler.tscn" id="1_uwrxv"]
+[ext_resource type="PackedScene" uid="uid://btvgexdp7qt5u" path="res://scenes/robert.tscn" id="1_uwrxv"]
 [ext_resource type="Texture2D" path="res://assets/Interior free/interior free/interior free.png" id="2_yqjtg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]

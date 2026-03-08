@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://n6q31u17w7o5"]
 
 [ext_resource type="Script" uid="uid://dh147w3ychpnk" path="res://scripts/robert_naar_comp.gd" id="1_dp014"]
-[ext_resource type="PackedScene" uid="uid://btvgexdp7qt5u" path="res://scenes/speler.tscn" id="2_eg183"]
+[ext_resource type="PackedScene" uid="uid://btvgexdp7qt5u" path="res://scenes/robert.tscn" id="2_eg183"]
 [ext_resource type="Texture2D" uid="uid://qwltn8xdhg0c" path="res://assets/Interior free/interior free.png" id="3_0k6sp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dp014"]
@@ -49,10 +49,43 @@ texture = ExtResource("3_0k6sp")
 [sub_resource type="TileSet" id="TileSet_eg183"]
 sources/0 = SubResource("TileSetAtlasSource_dp014")
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_dp014"]
+normal = Vector2(-0.99993396, -0.011493494)
+distance = -48.996765
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_eg183"]
+distance = -50.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0k6sp"]
+normal = Vector2(1, 0)
+distance = -49.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_sbqew"]
+normal = Vector2(0, 1)
+distance = -59.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pae8i"]
+atlas = ExtResource("3_0k6sp")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_trq7w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pae8i")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_we0q3"]
+size = Vector2(12, 14)
+
 [node name="Robert_naar_comp" type="Node2D" unique_id=902922102]
 script = ExtResource("1_dp014")
 
-[node name="Speler" parent="." unique_id=1571439186 instance=ExtResource("2_eg183")]
+[node name="Robert" parent="." unique_id=1571439186 instance=ExtResource("2_eg183")]
 z_index = 3
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2067608149]
@@ -85,3 +118,29 @@ vertical_alignment = 1
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=2080757283]
 tile_map_data = PackedByteArray("AAD9//v/AAAIAAAAAAD9//z/AAAIAAEAAAD9//3/AAAJAAEAAAD9//7/AAAJAAEAAAD9////AAAJAAEAAAD9/wAAAAAJAAEAAAD9/wEAAAAJAAEAAAD+//v/AAAIAAAAAAD+//z/AAAIAAEAAAD+//3/AAAJAAEAAAD+//7/AAAJAAEAAAD+////AAAJAAEAAAD+/wAAAAAJAAEAAAD+/wEAAAAJAAEAAAD///v/AAAIAAAAAAD///z/AAAIAAEAAAD///3/AAAJAAEAAAD///7/AAAJAAEAAAD/////AAAJAAEAAAD//wAAAAAJAAEAAAD//wEAAAAJAAEAAAAAAPv/AAAIAAAAAAAAAPz/AAAIAAEAAAAAAP3/AAAJAAEAAAAAAP7/AAAJAAEAAAAAAP//AAAJAAEAAAAAAAAAAAAJAAEAAAAAAAEAAAAJAAEAAAABAPv/AAAIAAAAAAABAPz/AAAIAAEAAAABAP3/AAAJAAEAAAABAP7/AAAJAAEAAAABAP//AAAJAAEAAAABAAAAAAAJAAEAAAABAAEAAAAJAAEAAAACAPv/AAAIAAAAAAACAPz/AAAIAAEAAAACAP3/AAAJAAEAAAACAP7/AAAJAAEAAAACAP//AAAJAAEAAAACAAAAAAAJAAEAAAACAAEAAAAJAAEAAAD9/wIAAAAJAAEAAAD+/wIAAAAJAAEAAAD//wIAAAAJAAEAAAAAAAIAAAAJAAEAAAABAAIAAAAJAAEAAAACAAIAAAAJAAEAAAA=")
 tile_set = SubResource("TileSet_eg183")
+
+[node name="boundry" type="StaticBody2D" parent="." unique_id=1778088079]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="boundry" unique_id=797926987]
+shape = SubResource("WorldBoundaryShape2D_dp014")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="boundry" unique_id=2096008353]
+shape = SubResource("WorldBoundaryShape2D_eg183")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="boundry" unique_id=1489076228]
+shape = SubResource("WorldBoundaryShape2D_0k6sp")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="boundry" unique_id=1956404852]
+shape = SubResource("WorldBoundaryShape2D_sbqew")
+
+[node name="computer" type="StaticBody2D" parent="." unique_id=2087174153]
+unique_name_in_owner = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="computer" unique_id=1548905274]
+z_index = 3
+position = Vector2(-17, -54)
+sprite_frames = SubResource("SpriteFrames_trq7w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="computer" unique_id=1241333238]
+position = Vector2(-17, -54)
+shape = SubResource("RectangleShape2D_we0q3")
