@@ -387,7 +387,7 @@ animations = [{
 radius = 5.0
 height = 16.0
 
-[node name="Robert" type="CharacterBody2D" unique_id=1571439186]
+[node name="Daria" type="CharacterBody2D" unique_id=1571439186]
 motion_mode = 1
 script = ExtResource("1_2bj0a")
 
