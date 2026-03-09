@@ -6,27 +6,27 @@ var speed = 1.0
 var minute_accumulator = 0.0 
 var time_up = false
 var deur_text = false
+var player_in_area = false
 @onready var text_display = %TheTekst
 
-# Called when the node enters the scene tree for the first time.
+#geheime doorgang niet te zien
 func _ready() -> void:
-	pass # Replace with function body.
+	for child in %DoorgangTilemap.get_children():
+		child.hide()
 
-
-
-var player_in_area = false
-
-func _on_area_2d_body_entered(body):
+#check of player in area
+func _on_volgende_level_body_entered(body):
 	if body.name == "Robert":
 		player_in_area = true
-
-func _on_area_2d_body_exited(body):
+func _on_volgende_level_body_exited(body):
 	if body.name == "Robert":
 		player_in_area = false
 
+#gebeurt elke frame
 func _process(delta):
 	if text_display.dialogue_active:
 		return
+	#crazy klok	
 	minute_accumulator += delta * speed
 	if minute_accumulator >= 1.0:
 		var add_minutes = int(minute_accumulator)
@@ -38,6 +38,7 @@ func _process(delta):
 			get_tree().reload_current_scene()
 	$CanvasLayer/TijdDisplay/TijdText.text = str(uren) + ':' + str(minuten)
 	
+	#NIET WERKEND tekst als je naar de deur gaat
 	if deur_text == true:
 		$CanvasLayer/TextDisplay.show()
 		text_display.dialogue_active = true
@@ -47,11 +48,18 @@ func _process(delta):
 			text_display.dialogue_active = false
 			deur_text = false
 	
+	#Volgende level
 	if player_in_area and Input.is_action_just_pressed("space"):
-		get_tree().change_scene_to_file("res://scenes/robert_terug.tscn")
+		get_tree().change_scene_to_file("res://scenes/kiara_naar_comp.tscn")
 		
 
-
+#NIET WERKEND als je deur probeert te gebruiken
 func _on_deur_tekst_body_entered(body: Node2D) -> void:
 	if body.name == "Robert":
 		deur_text = true
+
+# Laat de geheime doorgang zien
+func _on_geheime_doorgang_body_entered(body: Node2D) -> void:
+	if body.name == "Robert":
+		for child in %DoorgangTilemap.get_children():
+			child.show() # Replace with function body.
