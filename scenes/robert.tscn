@@ -384,8 +384,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3n8en"]
-radius = 5.0
-height = 16.0
+radius = 4.0
+height = 8.0
 
 [node name="Robert" type="CharacterBody2D" unique_id=1571439186]
 motion_mode = 1
@@ -423,7 +423,7 @@ sprite_frames = SubResource("SpriteFrames_pdh7q")
 animation = &"schoenen_walking"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=111746218]
-position = Vector2(1, 6)
+position = Vector2(1, 11)
 shape = SubResource("CapsuleShape2D_3n8en")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=418377115]

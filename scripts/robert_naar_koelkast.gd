@@ -19,6 +19,4 @@ func _on_area_2d_body_exited(body):
 
 func _process(delta):
 	if player_in_area and Input.is_action_just_pressed("space"):
-		get_tree().change_scene_to_file("res://scenes/minigame_1.tscn")
-
-	
+		get_tree().change_scene_to_file("res://scenes/robert_terug.tscn") # Replace with function body.

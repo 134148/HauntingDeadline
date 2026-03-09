@@ -3,7 +3,12 @@ extends CharacterBody2D
 @export var movement_speed : float = 150
 var character_direction : Vector2
 
+@onready var text_display = %TheTekst
+
 func _physics_process(delta):
+	
+	if text_display.dialogue_active:
+		return
 
 	character_direction.x = Input.get_axis("left", "right")
 	character_direction.y = Input.get_axis("up", "down")
