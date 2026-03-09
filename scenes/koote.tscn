@@ -130,16 +130,19 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s3kra"]
+radius = 7.0
+height = 14.0
 
 [node name="Koote" type="CharacterBody2D" unique_id=1923576686]
+z_index = 5
 script = ExtResource("1_14bis")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=461704326]
 sprite_frames = SubResource("SpriteFrames_qrbbt")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.65853375
+frame_progress = 0.8829211
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1308653833]
-position = Vector2(0, 49)
+position = Vector2(1, 57)
 shape = SubResource("CapsuleShape2D_s3kra")

@@ -3938,10 +3938,13 @@ theme = SubResource("Theme_eucgj")
 metadata/_edit_use_anchors_ = true
 
 [node name="TijdText" type="Label" parent="CanvasLayer/TijdDisplay" unique_id=572932249]
+unique_name_in_owner = true
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = -1
+anchor_left = -0.038043477
+anchor_top = 0.15853658
+anchor_right = 0.9619565
+anchor_bottom = 1.1585366
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 55
@@ -4010,12 +4013,26 @@ tile_set = SubResource("TileSet_8tydq")
 [node name="boundry" type="StaticBody2D" parent="." unique_id=1453043690]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="boundry" unique_id=1065191955]
-polygon = PackedVector2Array(-48, -65, -50, 14, -366, 16, -368, -146, -557, -145, -556, -16, -402, -16, -401, -125, -396, -124, -396, 46, 50, 50, 49, -51, -48, -51, -6, -129, 111, -52, 100, 89, -80, 134, -269, 115, -429, 88, -603, 16, -630, -151, -499, -221)
+polygon = PackedVector2Array(-48, -65, -50, 14, -366, 16, -368, -146, -557, -145, -556, -16, -402, -16, -399, -143, -396, -143, -396, 46, 50, 50, 49, -51, -48, -51, -6, -129, 111, -52, 100, 89, -80, 134, -269, 115, -429, 88, -603, 16, -630, -151, -499, -221)
 
-[node name="Area2D" type="Area2D" parent="." unique_id=2108679586]
+[node name="volgendeLevel" type="Area2D" parent="." unique_id=2108679586]
 position = Vector2(23, -41)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1350133101]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="volgendeLevel" unique_id=1350133101]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_wqnxt")
+
+[node name="DeurTekst" type="Area2D" parent="." unique_id=2127184041]
+position = Vector2(-408, -125)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeurTekst" unique_id=1333350573]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_wqnxt")
+
+[node name="GeheimeDoorgang" type="Area2D" parent="." unique_id=1188471562]
+position = Vector2(23, -41)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GeheimeDoorgang" unique_id=1448361740]
 position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_wqnxt")
 
@@ -4023,4 +4040,6 @@ shape = SubResource("CircleShape2D_wqnxt")
 color = Color(0.20875, 0.20875, 0.20875, 1)
 
 [node name="Koote" parent="." unique_id=1923576686 instance=ExtResource("11_8xr4j")]
-position = Vector2(-382, -176)
+position = Vector2(-413, -164)
+
+[connection signal="body_entered" from="DeurTekst" to="." method="_on_deur_tekst_body_entered"]
