@@ -10,6 +10,22 @@ offset_left = 445.0
 offset_top = 280.0
 offset_right = 656.0
 offset_bottom = 342.0
-text = "Start Game"
+text = "Start Game
+
+"
+
+[node name="Label" type="Label" parent="." unique_id=938447379]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 61.0
+offset_top = 362.0
+offset_right = 1165.0
+offset_bottom = 385.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Side note: in order to move around and/or skip along the dialogue, the space button must be pressed or the left mouse button must be clicked."
+vertical_alignment = 2
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
