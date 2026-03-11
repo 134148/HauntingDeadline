@@ -30,10 +30,11 @@ position = Vector2(50.053764, -2503.8408)
 scale = Vector2(3.850288, 4.1181583)
 
 [node name="Button" type="Button" parent="." unique_id=1251612559]
-offset_left = 999.0
-offset_top = 360.0
-offset_right = 1210.0
-offset_bottom = 422.0
-text = "Start Game"
+z_index = 10
+offset_left = 343.0
+offset_top = 46.0
+offset_right = 554.0
+offset_bottom = 108.0
+text = "Ga naar volgende level  (tijdelijk)"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

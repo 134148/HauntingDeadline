@@ -7,12 +7,16 @@ var minute_accumulator = 0.0
 var time_up = false
 var deur_text = false
 var player_in_area = false
+var dead := false
 @onready var text_display = %TheTekst
 
 #geheime doorgang niet te zien
 func _ready() -> void:
 	for child in %DoorgangTilemap.get_children():
 		child.hide()
+	%YouDied.hide()
+	%TijdDisplay.show()
+	%RestartText.hide()
 
 #check of player in area
 func _on_volgende_level_body_entered(body):
@@ -50,7 +54,11 @@ func _process(delta):
 	
 	#Volgende level
 	if player_in_area and Input.is_action_just_pressed("space"):
-		get_tree().change_scene_to_file("res://scenes/kiara_naar_comp.tscn")
+		get_tree().change_scene_to_file("res://scenes/endgame.tscn")
+		
+	# Reload als dood
+	if dead and Input.is_action_just_pressed("space"):
+		get_tree().reload_current_scene()
 		
 
 #NIET WERKEND als je deur probeert te gebruiken
@@ -63,3 +71,12 @@ func _on_geheime_doorgang_body_entered(body: Node2D) -> void:
 	if body.name == "Robert":
 		for child in %DoorgangTilemap.get_children():
 			child.show() # Replace with function body.
+
+# Dood door Koote
+func _on_koote_area_body_entered(body: Node2D) -> void:
+	if body.name == "Robert":
+		dead = true
+		%YouDied.show()
+		%TijdDisplay.hide() # Replace with function body.
+		%RestartText.show()
+			

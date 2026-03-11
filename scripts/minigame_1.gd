@@ -46,3 +46,7 @@ func start_game():
 	
 #func _on_button_pressed() -> void:
 	#get_tree().change_scene_to_file("res://scenes/robert_naar_koelkast.tscn")
+
+
+func _on_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/robert_naar_koelkast.tscn") # Replace with function body.
