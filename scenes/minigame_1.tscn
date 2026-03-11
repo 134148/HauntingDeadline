@@ -10,8 +10,8 @@
 script = ExtResource("1_tk6fs")
 
 [node name="Computer" type="Sprite2D" parent="." unique_id=356766241]
-position = Vector2(205, 293.00003)
-scale = Vector2(0.2597208, 0.24282695)
+position = Vector2(405, 254)
+scale = Vector2(0.17544654, 0.18903527)
 texture = ExtResource("2_lmjug")
 offset = Vector2(1000, 700)
 
