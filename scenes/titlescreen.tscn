@@ -7,10 +7,10 @@ position = Vector2(-544, -354)
 script = ExtResource("1_6d6rd")
 
 [node name="Button" type="Button" parent="." unique_id=1499228805]
-offset_left = 855.0
-offset_top = 700.0
-offset_right = 1066.0
-offset_bottom = 762.0
+offset_left = 1015.0
+offset_top = 611.0
+offset_right = 1226.0
+offset_bottom = 673.0
 text = "Start Game
 
 "
@@ -20,10 +20,10 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 437.0
-offset_top = 777.0
-offset_right = 1541.0
-offset_bottom = 826.0
+offset_left = 561.0
+offset_top = 669.0
+offset_right = 1708.0
+offset_bottom = 750.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "Side note: in order to move around and/or skip along the dialogue, the space button must be pressed 
