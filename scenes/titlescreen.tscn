@@ -3,13 +3,14 @@
 [ext_resource type="Script" uid="uid://b1gagi4cqmwpo" path="res://scripts/titlescreen.gd" id="1_6d6rd"]
 
 [node name="titlescreen" type="Node2D" unique_id=19628256]
+position = Vector2(-544, -354)
 script = ExtResource("1_6d6rd")
 
 [node name="Button" type="Button" parent="." unique_id=1499228805]
-offset_left = 445.0
-offset_top = 280.0
-offset_right = 656.0
-offset_bottom = 342.0
+offset_left = 855.0
+offset_top = 700.0
+offset_right = 1066.0
+offset_bottom = 762.0
 text = "Start Game
 
 "
@@ -19,13 +20,15 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 36.0
-offset_top = 362.0
-offset_right = 1140.0
-offset_bottom = 385.0
+offset_left = 437.0
+offset_top = 777.0
+offset_right = 1541.0
+offset_bottom = 826.0
 grow_horizontal = 2
 grow_vertical = 0
-text = "Side note: in order to move around and/or skip along the dialogue, the space button must be pressed or the left mouse button must be clicked."
+text = "Side note: in order to move around and/or skip along the dialogue, the space button must be pressed 
+or the left mouse button must be clicked."
+horizontal_alignment = 1
 vertical_alignment = 2
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

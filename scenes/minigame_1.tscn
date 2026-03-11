@@ -1,15 +1,39 @@
 [gd_scene format=3 uid="uid://b0ce10gu65beo"]
 
 [ext_resource type="Script" uid="uid://cm5oljqhs0tlc" path="res://scripts/minigame_1.gd" id="1_tk6fs"]
+[ext_resource type="Texture2D" uid="uid://cokegffatj0i1" path="res://assets/Interior free/—Pngtree—monitor with blank screen in_16252480.png" id="2_lmjug"]
+[ext_resource type="Texture2D" uid="uid://dtu0lyysw32on" path="res://assets/Interior free/bg.png" id="3_v5ebm"]
+[ext_resource type="PackedScene" uid="uid://bpn5m0ujcc2py" path="res://scenes/bird.tscn" id="4_v5ebm"]
+[ext_resource type="PackedScene" uid="uid://rg70tuma87xx" path="res://scenes/ground.tscn" id="5_fa05o"]
 
 [node name="minigame1" type="Node2D" unique_id=1460520207]
 script = ExtResource("1_tk6fs")
 
+[node name="Computer" type="Sprite2D" parent="." unique_id=356766241]
+position = Vector2(205, 293.00003)
+scale = Vector2(0.2597208, 0.24282695)
+texture = ExtResource("2_lmjug")
+offset = Vector2(1000, 700)
+
+[node name="Background" type="Sprite2D" parent="Computer" unique_id=76545866]
+position = Vector2(15.40115, -531.24274)
+scale = Vector2(2.2460015, 1.5603962)
+texture = ExtResource("3_v5ebm")
+offset = Vector2(432, 384)
+
+[node name="Bird" parent="Computer" unique_id=809923916 instance=ExtResource("4_v5ebm")]
+position = Vector2(211.76581, -37.063477)
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="Ground" parent="Computer" unique_id=279048536 instance=ExtResource("5_fa05o")]
+position = Vector2(50.053764, -2503.8408)
+scale = Vector2(3.850288, 4.1181583)
+
 [node name="Button" type="Button" parent="." unique_id=1251612559]
-offset_left = 445.0
-offset_top = 280.0
-offset_right = 656.0
-offset_bottom = 342.0
+offset_left = 999.0
+offset_top = 360.0
+offset_right = 1210.0
+offset_bottom = 422.0
 text = "Start Game"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
