@@ -5842,6 +5842,16 @@ size = Vector2(11, 27.5)
 [sub_resource type="CircleShape2D" id="CircleShape2D_uek5o"]
 radius = 12.0415945
 
+[sub_resource type="Gradient" id="Gradient_aafuq"]
+offsets = PackedFloat32Array(0.01058203, 0.6931217)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+metadata/_snap_count = 100
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_eucgj"]
+gradient = SubResource("Gradient_aafuq")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [node name="robert_terug" type="Node2D" unique_id=1421577407]
 script = ExtResource("1_rgcwt")
 
@@ -6034,6 +6044,12 @@ offset_top = -548.0
 offset_right = 396.0
 offset_bottom = 373.0
 color = Color(0.012617188, 0.012617188, 0.012617188, 1)
+
+[node name="PointLight2D2" type="PointLight2D" parent="." unique_id=1152953205]
+position = Vector2(24.000002, -51)
+scale = Vector2(0.39062503, 0.41674814)
+color = Color(0.74431086, 0.84599507, 3.8529434, 1)
+texture = SubResource("GradientTexture2D_eucgj")
 
 [connection signal="body_entered" from="volgendeLevel" to="." method="_on_volgende_level_body_entered"]
 [connection signal="body_exited" from="volgendeLevel" to="." method="_on_volgende_level_body_exited"]
