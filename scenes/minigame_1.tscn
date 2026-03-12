@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b0ce10gu65beo"]
 
 [ext_resource type="Script" uid="uid://cm5oljqhs0tlc" path="res://scripts/minigame_1.gd" id="1_tk6fs"]
+[ext_resource type="PackedScene" uid="uid://buxwn57ri3qmq" path="res://scenes/pipe.tscn" id="2_j1cg4"]
 [ext_resource type="Texture2D" uid="uid://cokegffatj0i1" path="res://assets/Interior free/—Pngtree—monitor with blank screen in_16252480.png" id="2_lmjug"]
 [ext_resource type="Texture2D" uid="uid://dtu0lyysw32on" path="res://assets/Interior free/bg.png" id="3_v5ebm"]
 [ext_resource type="PackedScene" uid="uid://bpn5m0ujcc2py" path="res://scenes/bird.tscn" id="4_v5ebm"]
@@ -8,16 +9,17 @@
 
 [node name="minigame1" type="Node2D" unique_id=1460520207]
 script = ExtResource("1_tk6fs")
+pipe_scene = ExtResource("2_j1cg4")
 
 [node name="Computer" type="Sprite2D" parent="." unique_id=356766241]
-position = Vector2(405, 254)
-scale = Vector2(0.17544654, 0.18903527)
+position = Vector2(162.05351, 251.87134)
+scale = Vector2(0.25863886, 0.24471167)
 texture = ExtResource("2_lmjug")
 offset = Vector2(1000, 700)
 
 [node name="Background" type="Sprite2D" parent="Computer" unique_id=76545866]
-position = Vector2(15.40115, -531.24274)
-scale = Vector2(2.2460015, 1.5603962)
+position = Vector2(-454.73788, -852.37463)
+scale = Vector2(3.2549891, 1.9618787)
 texture = ExtResource("3_v5ebm")
 offset = Vector2(432, 384)
 
@@ -26,7 +28,7 @@ position = Vector2(211.76581, -37.063477)
 scale = Vector2(0.99999994, 0.99999994)
 
 [node name="Ground" parent="Computer" unique_id=279048536 instance=ExtResource("5_fa05o")]
-position = Vector2(50.053764, -2503.8408)
+position = Vector2(-541.5022, -2504.463)
 scale = Vector2(3.850288, 4.1181583)
 
 [node name="Button" type="Button" parent="." unique_id=1251612559]
@@ -37,4 +39,8 @@ offset_right = 554.0
 offset_bottom = 108.0
 text = "Ga naar volgende level  (tijdelijk)"
 
+[node name="Pipe_timer" type="Timer" parent="." unique_id=558224546]
+wait_time = 1.5
+
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="Pipe_timer" to="." method="_on_pipe_timer_timeout"]
