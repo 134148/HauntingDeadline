@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://c4ln1w65eptu1"]
+
+[ext_resource type="PackedScene" uid="uid://cn7fjkfynxoeo" path="res://assets/rhytm/objects/keylistener.tscn" id="1_qc6i3"]
+
+[node name="GameLevel" type="Node2D" unique_id=1618758073]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=187676617]
+position = Vector2(-7, 3)
+
+[node name="Keylistener" parent="." unique_id=1677466425 instance=ExtResource("1_qc6i3")]
+position = Vector2(-380, 215)
+
+[node name="Keylistener2" parent="." unique_id=1280536010 instance=ExtResource("1_qc6i3")]
+position = Vector2(-292, 216)
+
+[node name="Sprite2D" parent="Keylistener2" index="0" unique_id=1825167240]
+frame = 1
+
+[node name="Keylistener3" parent="." unique_id=1926438095 instance=ExtResource("1_qc6i3")]
+position = Vector2(-205, 216)
+
+[node name="Sprite2D" parent="Keylistener3" index="0" unique_id=1825167240]
+frame = 2
+
+[node name="Keylistener4" parent="." unique_id=333457304 instance=ExtResource("1_qc6i3")]
+position = Vector2(-127, 220)
+
+[node name="Sprite2D" parent="Keylistener4" index="0" unique_id=1825167240]
+frame = 3
+
+[editable path="Keylistener2"]
+[editable path="Keylistener3"]
+[editable path="Keylistener4"]

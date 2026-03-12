@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://cn7fjkfynxoeo"]
+
+[ext_resource type="Texture2D" uid="uid://cpi4rbn5jovx4" path="res://assets/art/arrows.webp" id="1_rmp8p"]
+
+[node name="Keylistener" type="Node2D" unique_id=1677466425]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1825167240]
+position = Vector2(6, -3)
+scale = Vector2(1.2413793, 1.1111112)
+texture = ExtResource("1_rmp8p")
+hframes = 4
+vframes = 3
