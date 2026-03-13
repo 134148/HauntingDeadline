@@ -55,9 +55,10 @@ func _process(delta) :
 	
 	
 		for ground in $Computer/Ground.get_children():
-			ground.position.x -= SCROLL_SPEED
-			if ground.position.x < -ground.texture.get_width():
-				ground.position.x += ground.texture.get_width() * 2
+			if ground is Sprite2D:
+				ground.position.x -= SCROLL_SPEED
+				if ground.position.x < -ground.texture.get_width():
+					ground.position.x += ground.texture.get_width() * 2
 		
 		for pipe in pipes:
 			pipe.position.x -= SCROLL_SPEED
@@ -105,7 +106,7 @@ func stop_game():
 	$Pipe_timer.stop()
 	$Computer/Bird.flying = false
 	game_running = false
-	game_running = true
+	game_over = true
 	$Computer/Score/GameOver.show()
 
 	

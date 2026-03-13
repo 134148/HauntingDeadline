@@ -3,11 +3,11 @@
 [ext_resource type="Script" uid="uid://beoftbhoglrno" path="res://scenes/ground.gd" id="1_mi8v4"]
 [ext_resource type="Texture2D" uid="uid://d3jdidscu5way" path="res://assets/ground.png" id="1_pybca"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mi8v4"]
-size = Vector2(1724, 162)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lmksl"]
 size = Vector2(1749, 177)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mi8v4"]
+size = Vector2(1724, 162)
 
 [node name="Ground" type="Area2D" unique_id=279048536]
 script = ExtResource("1_mi8v4")
@@ -17,17 +17,17 @@ position = Vector2(0, 852)
 texture = ExtResource("1_pybca")
 offset = Vector2(864, 0)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground1" unique_id=143676721]
-position = Vector2(867, 3)
-shape = SubResource("RectangleShape2D_mi8v4")
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=1650106232]
+position = Vector2(2606, 851)
+shape = SubResource("RectangleShape2D_lmksl")
 
 [node name="Ground2" type="Sprite2D" parent="." unique_id=846160957]
 position = Vector2(2594, 852)
 texture = ExtResource("1_pybca")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Ground2" unique_id=1650106232]
-position = Vector2(12, -1)
-shape = SubResource("RectangleShape2D_lmksl")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=143676721]
+position = Vector2(867, 855)
+shape = SubResource("RectangleShape2D_mi8v4")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="hit" from="." to="." method="_on_hit"]
