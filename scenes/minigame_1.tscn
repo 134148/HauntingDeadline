@@ -66,5 +66,6 @@ stream = ExtResource("7_vc5od")
 autoplay = true
 
 [connection signal="hit" from="Computer/Ground" to="." method="_on_ground_hit"]
+[connection signal="restart" from="Computer/Score/GameOver" to="." method="_on_game_over_restart"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="timeout" from="Pipe_timer" to="." method="_on_pipe_timer_timeout"]

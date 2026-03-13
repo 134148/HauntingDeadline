@@ -23,6 +23,10 @@ Signals="*uid://cjjqqm5mf601t"
 
 window/stretch/mode="canvas_items"
 
+[global_group]
+
+pipes1=""
+
 [input]
 
 right={

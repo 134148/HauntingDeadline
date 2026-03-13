@@ -26,6 +26,8 @@ func new_game():
 	score = 0
 	scroll = 0
 	$Computer/Score.text = "SCORE: " + str(score)
+	$Computer/Score/GameOver.hide()
+	get_tree().call_group("pipes1", "queue_free")
 	pipes.clear()
 	#generate pipes
 	generate_pipes()
@@ -90,6 +92,9 @@ func generate_pipes():
 func scored():
 	score += 1
 	$Computer/Score.text = "SCORE " + str(score)
+	# Check of de speler gewonnen heeft
+	if score >= 5:
+		game_won()
 	
 func check_top():
 	if $Computer/Bird.position.y < -600:
@@ -101,6 +106,7 @@ func stop_game():
 	$Computer/Bird.flying = false
 	game_running = false
 	game_running = true
+	$Computer/Score/GameOver.show()
 
 	
 func bird_hit():
@@ -110,3 +116,15 @@ func bird_hit():
 func _on_ground_hit() -> void:
 	$Computer/Bird.falling = false
 	stop_game()
+
+
+func _on_game_over_restart() -> void:
+	new_game()
+
+func game_won():
+	# Stop het spel
+	game_running = false
+	$Pipe_timer.stop()
+	$Computer/Bird.flying = false
+	$Computer/Bird.falling = false
+	get_tree().change_scene_to_file("res://scenes/robert_naar_koelkast.tscn")
