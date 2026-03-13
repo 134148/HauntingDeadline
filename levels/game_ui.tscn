@@ -43,3 +43,32 @@ theme_override_font_sizes/normal_font_size = 41
 text = "0 pts
 "
 selection_enabled = true
+
+[node name="EndMessage" type="Label" parent="CanvasLayer" unique_id=102668878]
+offset_right = 314.0
+offset_bottom = 180.0
+theme_override_fonts/font = ExtResource("2_tpbhn")
+theme_override_font_sizes/font_size = 38
+text = "Je hebt het gehaald en je hebt een tien! Goedzo
+"
+
+[node name="EndMessage2" type="Label" parent="CanvasLayer" unique_id=393872110]
+offset_right = 314.0
+offset_bottom = 180.0
+theme_override_fonts/font = ExtResource("2_tpbhn")
+theme_override_font_sizes/font_size = 38
+text = "Je hebt het gehaald en je hebt een tien! Goedzo
+"
+
+[node name="RetryButton" type="Button" parent="CanvasLayer" unique_id=1896431903]
+visible = false
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Opnieuw proberen"
+
+[node name="TimerLabel" type="Label" parent="CanvasLayer" unique_id=666899336]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "60"
+
+[connection signal="pressed" from="CanvasLayer/RetryButton" to="." method="_on_retry_button_pressed"]

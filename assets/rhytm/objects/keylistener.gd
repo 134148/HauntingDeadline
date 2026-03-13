@@ -5,6 +5,7 @@ extends Node2D
 @onready var falling_key = preload("res://assets/rhytm/objects/falling_key.tscn")
 @onready var score_text = preload("res://assets/rhytm/objects/score_press_text.tscn")
 @onready var combo_label = $CanvasLayer/ComboLabel
+@onready var game_ui = get_tree().get_root().find_child("GameUI", true, false)
 
 @export var key_name: String = ""
 
@@ -26,9 +27,24 @@ var great_press_score: float = 100
 var good_press_score: float = 50
 var ok_press_score: float = 20
 
+func _on_score_added(incr: int) -> void:
+	total_score += incr
+	
 func _ready():
 	$GlowOverlay.frame = $Sprite2D.frame + 4
 	Signals.IncrementScore.connect(_on_score_added)
+	if !game_running:
+		return
+
+	if total_score >= 3000:
+		game_running = false
+		game_ui.show_win()
+		return
+
+	if game_time >= 60:
+		game_running = false
+		game_ui.show_game_over()
+		return
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -36,11 +52,20 @@ func _process(delta: float) -> void:
 		return
 
 	game_time += delta
+	game_ui.update_timer(60.0 - game_time)
 
-	if total_score >= 3000 or game_time >= 60.0:
-		_end_game()
+
+	if total_score >= 3000:
+		game_running = false
+		$RandomSpawnTimer.stop()
+		game_ui.show_win()
 		return
-
+	if game_time >= 60.0:
+		game_running = false
+		$RandomSpawnTimer.stop()
+		game_ui.show_game_over()
+		return
+		
 	if falling_key_queue.size() > 0:
 		if falling_key_queue.front().has_passed:
 			var missed_key = falling_key_queue.pop_front()
@@ -113,10 +138,11 @@ func _on_random_spawn_timer_timeout() -> void:
 	$RandomSpawnTimer.wait_time = randf_range(0.4, 3)
 	$RandomSpawnTimer.start()
 
-func _on_score_added(incr: int) -> void:
-	total_score += incr
-
 func _end_game() -> void:
 	game_running = false
 	$RandomSpawnTimer.stop()
 	print("GAME OVER")
+	
+	
+func update_timer(time_left: float):
+	$TimerLabel.text = str(max(0, ceil(time_left)))
