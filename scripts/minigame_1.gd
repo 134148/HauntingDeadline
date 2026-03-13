@@ -12,6 +12,7 @@ var ground_height : int
 var pipes : Array
 var PIPE_DELAY : int = 100
 const PIPE_RANGE : int = 200
+@onready var text_display = %TheTekst
 
 
 # Called when the node enters the scene tree for the first time.
@@ -35,13 +36,15 @@ func new_game():
 	
 func _input(event):
 	if game_over == false:
-		if Input.is_action_just_pressed("space"):
-			if game_running == false:
-				start_game()
-			else:
-				if $Computer/Bird.flying:
-					$Computer/Bird.flap()
-					check_top()
+		#if Input.is_action_pressed("space"):
+		if event is InputEventMouseButton:
+			if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+				if game_running == false:
+					start_game()
+				else:
+					if $Computer/Bird.flying:
+						$Computer/Bird.flap()
+						check_top()
 
 						
 func start_game():
@@ -52,15 +55,20 @@ func start_game():
 
 func _process(delta) :
 	if game_running:
-	
-	
-		for ground in $Computer/Ground.get_children():
-			ground.position.x -= SCROLL_SPEED
-			if ground.position.x < -ground.texture.get_width():
-				ground.position.x += ground.texture.get_width() * 2
+		scroll += SCROLL_SPEED
+		if scroll >= screen_size.x:
+			scroll = 0
 		
+		$Computer/Ground.position.x = -scroll
+	
+		#for ground in $Computer/Ground.get_children():
+			#ground.position.x -= SCROLL_SPEED
+			#if ground.position.x < -ground.texture.get_width():
+				#ground.position.x += ground.texture.get_width() * 2
+		#
 		for pipe in pipes:
 			pipe.position.x -= SCROLL_SPEED
+		
 	
 
 
@@ -97,7 +105,7 @@ func scored():
 		game_won()
 	
 func check_top():
-	if $Computer/Bird.position.y < -600:
+	if $Computer/Bird.position.y > 61 :
 		$Computer/Bird.falling = true
 		stop_game()
 
@@ -105,7 +113,7 @@ func stop_game():
 	$Pipe_timer.stop()
 	$Computer/Bird.flying = false
 	game_running = false
-	game_running = true
+	#game_running = true
 	$Computer/Score/GameOver.show()
 
 	
