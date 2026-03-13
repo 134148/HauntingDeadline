@@ -25,11 +25,6 @@ func _ready() -> void:
 			"0_0",
 			"Objective 4: REN. GA TERUG NAAR DE LAPTOP. "
 		]
-	if get_tree().current_scene.name == 'minigame1':
-		dialogue = [
-			"Oke, ik heb nog deze taken te doen...",
-			"Objective: Haal 5 punten in het spel"
-		]
 	if dialogue.size() > 0:
 		text = dialogue[index]
 	print(get_tree().current_scene.name)
