@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://xqg4cnlrr025"]
 
 [ext_resource type="Script" uid="uid://b1gagi4cqmwpo" path="res://scripts/titlescreen.gd" id="1_6d6rd"]
+[ext_resource type="AudioStream" uid="uid://cwj2xwj8kpwd0" path="res://assets/music/Clement Panchout_ Forest Of A Thousand Masks.wav" id="2_3jj3l"]
 
 [node name="titlescreen" type="Node2D" unique_id=19628256]
 position = Vector2(-544, -354)
@@ -30,5 +31,9 @@ text = "Side note: in order to move around and/or skip along the dialogue, the s
 or the left mouse button must be clicked."
 horizontal_alignment = 1
 vertical_alignment = 2
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=596248828]
+stream = ExtResource("2_3jj3l")
+autoplay = true
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

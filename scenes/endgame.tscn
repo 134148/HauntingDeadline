@@ -1,7 +1,12 @@
 [gd_scene format=3 uid="uid://diwyf5fb75d34"]
 
 [ext_resource type="PackedScene" uid="uid://c4ln1w65eptu1" path="res://levels/game_level.tscn" id="1_dugu8"]
+[ext_resource type="AudioStream" uid="uid://05nvx655x02x" path="res://assets/music/Clement Panchout_ Best Party Ever _ 2019.wav" id="3_m5up5"]
 
 [node name="endgame" type="Node2D" unique_id=1303246608]
 
 [node name="GameLevel" parent="." unique_id=1618758073 instance=ExtResource("1_dugu8")]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1643410666]
+stream = ExtResource("3_m5up5")
+autoplay = true
