@@ -76,6 +76,8 @@ func _on_geheime_doorgang_body_entered(body: Node2D) -> void:
 func _on_koote_area_body_entered(body: Node2D) -> void:
 	if body.name == "Robert":
 		dead = true
+		$AudioStreamPlayer2D.stream = load("res://assets/music/Clement Panchout _ Unsettling victory _ 2019.wav")
+		$AudioStreamPlayer2D.play()
 		%YouDied.show()
 		%TijdDisplay.hide() # Replace with function body.
 		%RestartText.show()
