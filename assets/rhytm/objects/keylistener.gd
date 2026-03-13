@@ -5,6 +5,19 @@ extends Node2D
 
 var falling_key_queue = []
 
+#If distance less than thresshold, give that score
+var perfect_press_threshold: float = 6
+var great_press_threshold: float = 18
+var good_press_threshold: float = 25
+var ok_press_threshold: float = 40
+#otherwise miss 
+
+var perfect_press_score: float = 250
+var great_press_score: float = 100
+var good_press_score: float = 50
+var ok_press_score: float = 20
+
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if falling_key_queue.size() > 0: 
@@ -16,7 +29,18 @@ func _process(delta: float) -> void:
 			
 			var distance_from_pass = abs(key_to_pop.pass_threshold - key_to_pop.global_position.y)
 			
-			Signals.IncrementScore.emit(100)
+			if distance_from_pass < perfect_press_threshold: 
+				Signals.IncrementScore.emit(perfect_press_threshold)
+			elif distance_from_pass < great_press_threshold: 
+				Signals.IncrementScore.emit(great_press_threshold)
+			elif distance_from_pass < good_press_threshold: 
+				Signals.IncrementScore.emit(good_press_threshold)
+			elif distance_from_pass < ok_press_threshold: 
+				Signals.IncrementScore.emit(ok_press_threshold)
+			else:
+				pass
+
+
 			key_to_pop.queue_free()
 
 func CreateFallingKey():
