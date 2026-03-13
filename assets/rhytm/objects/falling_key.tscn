@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dx7n54go43cpd"]
+
+[ext_resource type="Texture2D" uid="uid://cpi4rbn5jovx4" path="res://assets/art/arrows.webp" id="1_irhts"]
+[ext_resource type="Script" uid="uid://cs3fl5i54g4w8" path="res://assets/rhytm/objects/falling_key.gd" id="2_gmew0"]
+
+[node name="FallingKey" type="Sprite2D" unique_id=262694065]
+position = Vector2(-1, 1)
+texture = ExtResource("1_irhts")
+hframes = 4
+vframes = 3
+frame = 4
+script = ExtResource("2_gmew0")
+
+[node name="Timer" type="Timer" parent="." unique_id=1280426488]
+wait_time = 5.0
+one_shot = true
+autostart = true

@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://cn7fjkfynxoeo"]
 
+[ext_resource type="Script" uid="uid://durxl6w7lf3ju" path="res://assets/rhytm/objects/keylistener.gd" id="1_08pod"]
 [ext_resource type="Texture2D" uid="uid://cpi4rbn5jovx4" path="res://assets/art/arrows.webp" id="1_rmp8p"]
 
 [node name="Keylistener" type="Node2D" unique_id=1677466425]
+script = ExtResource("1_08pod")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1825167240]
 position = Vector2(6, -3)
