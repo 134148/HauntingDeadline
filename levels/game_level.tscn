@@ -1,7 +1,12 @@
 [gd_scene format=3 uid="uid://c4ln1w65eptu1"]
 
+[ext_resource type="Texture2D" uid="uid://4oo7h8o5y5yy" path="res://assets/art/fnf-pico-newgrounds-office-roof-background.jpg" id="1_d65c1"]
 [ext_resource type="PackedScene" uid="uid://cn7fjkfynxoeo" path="res://assets/rhytm/objects/keylistener.tscn" id="1_qc6i3"]
 [ext_resource type="PackedScene" uid="uid://d26l6dw4lx30l" path="res://levels/game_ui.tscn" id="2_sklrn"]
+
+[sub_resource type="Environment" id="Environment_n0b0m"]
+background_mode = 3
+glow_enabled = true
 
 [node name="GameLevel" type="Node2D" unique_id=1618758073]
 position = Vector2(8, 4)
@@ -9,43 +14,69 @@ position = Vector2(8, 4)
 [node name="Camera2D" type="Camera2D" parent="." unique_id=187676617]
 position = Vector2(-3, 5)
 
+[node name="Background" type="Sprite2D" parent="." unique_id=104519775]
+texture = ExtResource("1_d65c1")
+
 [node name="Keylistener" parent="." unique_id=1677466425 instance=ExtResource("1_qc6i3")]
 use_parent_material = true
 position = Vector2(-120, 280)
 key_name = "button_Q"
 
 [node name="Sprite2D" parent="Keylistener" index="0" unique_id=1825167240]
-position = Vector2(-5, 3)
+position = Vector2(-11.500004, 10.999997)
+scale = Vector2(1.4655174, 1.3333334)
+
+[node name="GlowOverlay" parent="Keylistener" index="2" unique_id=895377758]
+position = Vector2(-15, 5)
+scale = Vector2(1.2413793, 1.1388888)
 
 [node name="Keylistener2" parent="." unique_id=1280536010 instance=ExtResource("1_qc6i3")]
 position = Vector2(-40, 280)
 key_name = "button_W"
 
 [node name="Sprite2D" parent="Keylistener2" index="0" unique_id=1825167240]
-position = Vector2(-7, 3)
+position = Vector2(2.500001, 8.999993)
+scale = Vector2(1.5689656, 1.2777777)
 frame = 1
+
+[node name="GlowOverlay" parent="Keylistener2" index="2" unique_id=895377758]
+position = Vector2(-1, 13)
+scale = Vector2(1.2758621, 1.1666666)
 
 [node name="Keylistener3" parent="." unique_id=1926438095 instance=ExtResource("1_qc6i3")]
 position = Vector2(40, 280)
 key_name = "button_E"
 
 [node name="Sprite2D" parent="Keylistener3" index="0" unique_id=1825167240]
-position = Vector2(-6, 5)
+position = Vector2(3, 7.000004)
+scale = Vector2(1.5517241, 1.1666667)
 frame = 2
+
+[node name="GlowOverlay" parent="Keylistener3" index="2" unique_id=895377758]
+position = Vector2(2, 10)
+scale = Vector2(1.2241379, 1.1666666)
 
 [node name="Keylistener4" parent="." unique_id=333457304 instance=ExtResource("1_qc6i3")]
 position = Vector2(120, 280)
 key_name = "button_R"
 
 [node name="Sprite2D" parent="Keylistener4" index="0" unique_id=1825167240]
-position = Vector2(-11, 2)
+position = Vector2(-7.000001, 4.5)
+scale = Vector2(1.3793103, 1.1805556)
 frame = 3
 
+[node name="GlowOverlay" parent="Keylistener4" index="2" unique_id=895377758]
+position = Vector2(0.9999924, -1)
+scale = Vector2(1.7931035, 1.0694444)
+
 [node name="GameUI" parent="." unique_id=1687491609 instance=ExtResource("2_sklrn")]
-offset_left = -1685.0
-offset_top = -548.0
-offset_right = -1685.0
-offset_bottom = -548.0
+offset_left = 1.0
+offset_top = 10.0
+offset_right = 1.0
+offset_bottom = 10.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=173547088]
+environment = SubResource("Environment_n0b0m")
 
 [editable path="Keylistener"]
 [editable path="Keylistener2"]

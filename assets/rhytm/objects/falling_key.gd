@@ -1,5 +1,8 @@
 extends Sprite2D
 
+var game_time := 0.0
+var game_running := true
+var score := 0
 
 @export var fall_speed: float = 3.0
 

@@ -1,5 +1,7 @@
 extends Control
 
+
+
 var score: int = 0
 var combo_count: int = 0
 
@@ -16,9 +18,8 @@ func IncrementScore(incr: int):
 	$CanvasLayer/ScoreLabel.text = str(score) + "pts"
 	
 func IncrementCombo():
-	combo_count +1
+	combo_count += 1
 	%ComboLabel.text = " " + str(combo_count) + "x combo"
-
 	
 func ResetCombo():
 	combo_count = 0

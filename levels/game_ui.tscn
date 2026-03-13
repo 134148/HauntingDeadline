@@ -1,39 +1,45 @@
 [gd_scene format=3 uid="uid://d26l6dw4lx30l"]
 
 [ext_resource type="Script" uid="uid://m40xss0k13t4" path="res://levels/game_ui.gd" id="1_451jp"]
+[ext_resource type="FontFile" uid="uid://bpnd22ml4sabt" path="res://assets/art/AtlantaCollegeRegular-1Gva2.ttf" id="2_tpbhn"]
 
 [node name="GameUI" type="Control" unique_id=1687491609]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -4.0
-offset_top = 4.0
-offset_right = -864.0
-offset_bottom = -432.0
+offset_left = 2.0
+offset_top = -2.0
+offset_right = -858.0
+offset_bottom = -438.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_451jp")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=805194736]
 
-[node name="ScoreLabel" type="RichTextLabel" parent="CanvasLayer" unique_id=622227474]
+[node name="ComboLabel" type="RichTextLabel" parent="CanvasLayer" unique_id=602302108]
 unique_name_in_owner = true
-offset_right = 445.0
-offset_bottom = 87.0
+offset_left = 41.0
+offset_top = 92.0
+offset_right = 486.0
+offset_bottom = 179.0
 focus_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_tpbhn")
 theme_override_font_sizes/normal_font_size = 41
-text = "0 pts
+text = "0x Combo
 "
 selection_enabled = true
 
-[node name="ScoreLabel" type="RichTextLabel" parent="." unique_id=602302108]
-layout_mode = 0
-offset_top = 64.0
-offset_right = 445.0
+[node name="ScoreLabel" type="RichTextLabel" parent="CanvasLayer" unique_id=622227474]
+unique_name_in_owner = true
+offset_left = 40.0
+offset_top = 41.0
+offset_right = 520.0
 offset_bottom = 151.0
 focus_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_tpbhn")
 theme_override_font_sizes/normal_font_size = 41
-text = "0x Combo
+text = "0 pts
 "
 selection_enabled = true
