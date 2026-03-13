@@ -14,14 +14,14 @@ position = Vector2(-120, 280)
 key_name = "button_Q"
 
 [node name="Sprite2D" parent="Keylistener" index="0" unique_id=1825167240]
-position = Vector2(0, 2.9999847)
+position = Vector2(-5, 3)
 
 [node name="Keylistener2" parent="." unique_id=1280536010 instance=ExtResource("1_qc6i3")]
 position = Vector2(-40, 280)
 key_name = "button_W"
 
 [node name="Sprite2D" parent="Keylistener2" index="0" unique_id=1825167240]
-position = Vector2(-2, 3)
+position = Vector2(-7, 3)
 frame = 1
 
 [node name="Keylistener3" parent="." unique_id=1926438095 instance=ExtResource("1_qc6i3")]
@@ -29,7 +29,7 @@ position = Vector2(40, 280)
 key_name = "button_E"
 
 [node name="Sprite2D" parent="Keylistener3" index="0" unique_id=1825167240]
-position = Vector2(2, 5)
+position = Vector2(-3, 5)
 frame = 2
 
 [node name="Keylistener4" parent="." unique_id=333457304 instance=ExtResource("1_qc6i3")]
@@ -37,7 +37,7 @@ position = Vector2(120, 280)
 key_name = "button_R"
 
 [node name="Sprite2D" parent="Keylistener4" index="0" unique_id=1825167240]
-position = Vector2(-9, 2.0000002)
+position = Vector2(-13, 2)
 frame = 3
 
 [editable path="Keylistener"]

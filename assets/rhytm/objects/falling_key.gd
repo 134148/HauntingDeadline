@@ -5,6 +5,10 @@ extends Sprite2D
 
 var init_y_pos: float = -360
 
+#It's true if the FK has passed the allowed input
+var has_passed: bool = false
+var pass_threshold = 300.0
+
 func _init():
 	set_process(false)
 
@@ -13,9 +17,10 @@ func _process(delta: float):
 	global_position += Vector2(0, fall_speed)
 	
 	#Find out how long it takes for arrow to reach critical spot, in my case 3.6
-	if global_position.y > 290 and not $Timer.is_stopped():
+	if global_position.y > pass_threshold and not $Timer.is_stopped():
 		print($Timer.wait_time - $Timer.time_left)
 		$Timer.stop()
+		has_passed = true
 
 func Setup(target_x: float, target_frame: int):
 	global_position = Vector2(target_x,init_y_pos)
