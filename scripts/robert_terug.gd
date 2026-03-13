@@ -12,6 +12,11 @@ var dead := false
 
 #geheime doorgang niet te zien
 func _ready() -> void:
+	$Sound_effects.stream = load("res://assets/sound effects/freesound_community-monster-howl-85304.mp3")
+	$Sound_effects.play()
+	await $Sound_effects.finished
+	$AudioStreamPlayer2D.stream = load("res://assets/music/Space Horror Boss Music _Clement Panchout.wav")
+	$AudioStreamPlayer2D.play()
 	for child in %DoorgangTilemap.get_children():
 		child.hide()
 	%YouDied.hide()

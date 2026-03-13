@@ -3691,6 +3691,8 @@ color = Color(0.012617188, 0.012617188, 0.012617188, 1)
 stream = ExtResource("11_aafuq")
 autoplay = true
 
+[node name="Sound_effects" type="AudioStreamPlayer2D" parent="." unique_id=1833742585]
+
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
