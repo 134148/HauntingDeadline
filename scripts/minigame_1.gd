@@ -39,6 +39,7 @@ func _input(event):
 				else:
 					if $Computer/Bird.flying:
 						$Computer/Bird.flap()
+						check_top()
 						
 func start_game():
 	game_running = true
@@ -83,7 +84,19 @@ func generate_pipes():
 	pipe.hit.connect(bird_hit)
 	add_child(pipe)
 	pipes.append(pipe)
+	
+func check_top():
+	if $Computer/Bird.position.y < -600:
+		$Computer/Bird.falling = true
+		stop_game()
+
+func stop_game():
+	$Pipe_timer.stop()
+	$Computer/Bird.flying = false
+	game_running = false
+	game_running = true
 
 	
 func bird_hit():
-	pass
+	$Computer/Bird.falling = true
+	stop_game()
