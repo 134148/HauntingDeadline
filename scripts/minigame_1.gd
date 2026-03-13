@@ -12,6 +12,7 @@ var ground_height : int
 var pipes : Array
 var PIPE_DELAY : int = 100
 const PIPE_RANGE : int = 200
+var dead = false
 
 
 # Called when the node enters the scene tree for the first time.
@@ -19,6 +20,8 @@ func _ready() :
 	screen_size = get_window().size
 	ground_height = $Computer/Ground/Ground1.texture.get_height()
 	new_game()
+	%YouDied.hide()
+	%RestartText.hide()
 
 func new_game():
 	game_running = false
@@ -59,11 +62,10 @@ func _process(delta) :
 		for pipe in pipes:
 			pipe.position.x -= SCROLL_SPEED
 	
+	if game_over and Input.is_action_just_pressed("space"):
+		get_tree().reload_current_scene()
+	
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta: float) -> void:
-	pass
 	
 #func _on_button_pressed() -> void:
 	#get_tree().change_scene_to_file("res://scenes/robert_naar_koelkast.tscn")
@@ -95,8 +97,20 @@ func stop_game():
 	$Computer/Bird.flying = false
 	game_running = false
 	game_running = true
+	game_over = true
+	$Sound_effects.stream = load("res://assets/sound effects/mixkit-video-game-blood-pop-2361.wav")
+	$Sound_effects.play()
+	$AudioStreamPlayer2D.stream = load("res://assets/music/Clement Panchout _ Unsettling victory _ 2019.wav")
+	$AudioStreamPlayer2D.play()
+	%YouDied.show() # Replace with function body.
+	%RestartText.show()
 
 	
 func bird_hit():
 	$Computer/Bird.falling = true
 	stop_game()
+	
+	# Reload als dood
+
+	
+	
