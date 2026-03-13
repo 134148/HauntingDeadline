@@ -3,31 +3,41 @@
 [ext_resource type="Script" uid="uid://beoftbhoglrno" path="res://scenes/ground.gd" id="1_mi8v4"]
 [ext_resource type="Texture2D" uid="uid://d3jdidscu5way" path="res://assets/ground.png" id="1_pybca"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w5yvf"]
+size = Vector2(3463, 176)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mi8v4"]
 size = Vector2(1724, 162)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lmksl"]
 size = Vector2(1749, 177)
 
-[node name="Ground" type="Area2D" unique_id=279048536]
+[node name="Ground" type="Area2D" unique_id=453263635]
 script = ExtResource("1_mi8v4")
 
-[node name="Ground1" type="Sprite2D" parent="." unique_id=869541921]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2070484712]
+position = Vector2(1733.5, 869)
+shape = SubResource("RectangleShape2D_w5yvf")
+
+[node name="Ground1" type="StaticBody2D" parent="." unique_id=1640120658]
 position = Vector2(0, 852)
-texture = ExtResource("1_pybca")
-offset = Vector2(864, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground1" unique_id=143676721]
 position = Vector2(867, 3)
 shape = SubResource("RectangleShape2D_mi8v4")
 
-[node name="Ground2" type="Sprite2D" parent="." unique_id=846160957]
+[node name="Ground11" type="Sprite2D" parent="Ground1" unique_id=869541921]
+texture = ExtResource("1_pybca")
+offset = Vector2(864, 0)
+
+[node name="Ground2" type="StaticBody2D" parent="." unique_id=856304903]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Ground2" unique_id=1650106232]
+position = Vector2(2606, 851)
+shape = SubResource("RectangleShape2D_lmksl")
+
+[node name="Ground22" type="Sprite2D" parent="Ground2" unique_id=846160957]
 position = Vector2(2594, 852)
 texture = ExtResource("1_pybca")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Ground2" unique_id=1650106232]
-position = Vector2(12, -1)
-shape = SubResource("RectangleShape2D_lmksl")
-
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="hit" from="." to="." method="_on_hit"]
