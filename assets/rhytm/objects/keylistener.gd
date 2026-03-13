@@ -29,7 +29,7 @@ func _process(delta: float) -> void:
 			
 			var st_inst = score_text.instantiate() 
 			get_tree().get_root().call_deferred("add_child", st_inst)
-			st_inst.SetTextInfo("press_score_text")
+			st_inst.SetTextInfo("MISS!")
 			st_inst.global_position = global_position + Vector2(0, -15) 
 
 	
