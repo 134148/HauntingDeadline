@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c4ln1w65eptu1"]
 
 [ext_resource type="PackedScene" uid="uid://cn7fjkfynxoeo" path="res://assets/rhytm/objects/keylistener.tscn" id="1_qc6i3"]
+[ext_resource type="PackedScene" uid="uid://d26l6dw4lx30l" path="res://levels/game_ui.tscn" id="2_sklrn"]
 
 [node name="GameLevel" type="Node2D" unique_id=1618758073]
 position = Vector2(8, 4)
@@ -29,7 +30,7 @@ position = Vector2(40, 280)
 key_name = "button_E"
 
 [node name="Sprite2D" parent="Keylistener3" index="0" unique_id=1825167240]
-position = Vector2(-3, 5)
+position = Vector2(-6, 5)
 frame = 2
 
 [node name="Keylistener4" parent="." unique_id=333457304 instance=ExtResource("1_qc6i3")]
@@ -37,8 +38,14 @@ position = Vector2(120, 280)
 key_name = "button_R"
 
 [node name="Sprite2D" parent="Keylistener4" index="0" unique_id=1825167240]
-position = Vector2(-13, 2)
+position = Vector2(-11, 2)
 frame = 3
+
+[node name="GameUI" parent="." unique_id=1687491609 instance=ExtResource("2_sklrn")]
+offset_left = -1685.0
+offset_top = -548.0
+offset_right = -1685.0
+offset_bottom = -548.0
 
 [editable path="Keylistener"]
 [editable path="Keylistener2"]
