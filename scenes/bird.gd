@@ -5,7 +5,7 @@ const MAX_VEL : int = 600
 const FLAP_SPEED : int = -500
 var flying : bool = false
 var falling : bool = false
-const START_POS = Vector2(100, 250)
+const START_POS = Vector2(100, 400)
 
 func _ready():
 	reset()
@@ -15,29 +15,24 @@ func reset():
 	flying = false
 	position = START_POS
 	set_rotation(0)
-	velocity = Vector2.ZERO
 	
 func _physics_process(delta):
 	if flying or falling:
 		velocity.y += GRAVITY * delta
-
+		#terminal velocity
 		if velocity.y > MAX_VEL:
 			velocity.y = MAX_VEL
-
 		if flying:
 			set_rotation(deg_to_rad(velocity.y * 0.05))
 			$AnimatedSprite2D.play()
 		elif falling:
 			set_rotation(PI/2)
 			$AnimatedSprite2D.stop()
-
-		move_and_slide()
+		move_and_collide(velocity * delta)
 	else:
 		$AnimatedSprite2D.stop()
 
-	
 func flap():
-	print("FLAP")
 	velocity.y = FLAP_SPEED
 		
 	

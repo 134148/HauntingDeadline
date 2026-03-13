@@ -14,11 +14,10 @@ var PIPE_DELAY : int = 100
 const PIPE_RANGE : int = 200
 
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready() :
 	screen_size = get_window().size
-	ground_height = $Computer/Ground/Ground1/Ground11.texture.get_height()
+	ground_height = $Computer/Ground/Ground1.texture.get_height()
 	new_game()
 
 func new_game():
@@ -40,13 +39,15 @@ func _input(event):
 			if game_running == false:
 				start_game()
 			else:
-				$Computer/Bird.flap()
+				if $Computer/Bird.flying:
+					$Computer/Bird.flap()
+					check_top()
 
 						
 func start_game():
 	game_running = true
 	$Computer/Bird.flying = true
-	$Computer/Bird.flap()   # ← dit zorgt voor de eerste sprong
+	$Computer/Bird.flap()
 	$Pipe_timer.start()
 
 func _process(delta) :
@@ -54,16 +55,21 @@ func _process(delta) :
 	
 	
 		for ground in $Computer/Ground.get_children():
-
-			var sprite = ground.get_child(0)  # dit is Ground11 of Ground22 (Sprite2D)
-
 			ground.position.x -= SCROLL_SPEED
-
-			if ground.position.x < -sprite.texture.get_width():
-				ground.position.x += sprite.texture.get_width() * 2
+			if ground.position.x < -ground.texture.get_width():
+				ground.position.x += ground.texture.get_width() * 2
 		
 		for pipe in pipes:
 			pipe.position.x -= SCROLL_SPEED
+	
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta: float) -> void:
+	pass
+	
+#func _on_button_pressed() -> void:
+	#get_tree().change_scene_to_file("res://scenes/robert_naar_koelkast.tscn")
 
 
 func _on_button_pressed() -> void:
@@ -99,7 +105,7 @@ func stop_game():
 	$Pipe_timer.stop()
 	$Computer/Bird.flying = false
 	game_running = false
-	game_over = true
+	game_running = true
 	$Computer/Score/GameOver.show()
 
 	
@@ -108,7 +114,7 @@ func bird_hit():
 	stop_game()
 
 func _on_ground_hit() -> void:
-	$Computer/Bird.falling = true
+	$Computer/Bird.falling = false
 	stop_game()
 
 
@@ -122,7 +128,3 @@ func game_won():
 	$Computer/Bird.flying = false
 	$Computer/Bird.falling = false
 	get_tree().change_scene_to_file("res://scenes/robert_naar_koelkast.tscn")
-	
-func flap():
-	print("FLAP")
-	
