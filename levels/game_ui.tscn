@@ -7,10 +7,10 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 108.0
-offset_top = 26.0
-offset_right = -752.0
-offset_bottom = -410.0
+offset_left = -4.0
+offset_top = 4.0
+offset_right = -864.0
+offset_bottom = -432.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_451jp")
@@ -24,5 +24,16 @@ offset_bottom = 87.0
 focus_mode = 2
 theme_override_font_sizes/normal_font_size = 41
 text = "0 pts
+"
+selection_enabled = true
+
+[node name="ScoreLabel" type="RichTextLabel" parent="." unique_id=602302108]
+layout_mode = 0
+offset_top = 64.0
+offset_right = 445.0
+offset_bottom = 151.0
+focus_mode = 2
+theme_override_font_sizes/normal_font_size = 41
+text = "0x Combo
 "
 selection_enabled = true
