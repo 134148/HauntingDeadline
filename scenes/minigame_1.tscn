@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bpn5m0ujcc2py" path="res://scenes/bird.tscn" id="4_v5ebm"]
 [ext_resource type="PackedScene" uid="uid://rg70tuma87xx" path="res://scenes/ground.tscn" id="5_fa05o"]
 [ext_resource type="AudioStream" uid="uid://5035847y73bt" path="res://assets/music/2016_ Clement Panchout_ Life is full of Joy.wav" id="7_vc5od"]
+[ext_resource type="PackedScene" uid="uid://dgwoctkhwvtul" path="res://scenes/game_over.tscn" id="7_xpvfh"]
 
 [node name="minigame1" type="Node2D" unique_id=1460520207]
 script = ExtResource("1_tk6fs")
@@ -30,8 +31,24 @@ scale = Vector2(0.99999994, 0.99999994)
 
 [node name="Ground" parent="Computer" unique_id=279048536 instance=ExtResource("5_fa05o")]
 z_index = 1
-position = Vector2(-541.5022, -2504.463)
+position = Vector2(-488.8094, -2509.7505)
 scale = Vector2(3.850288, 4.1181583)
+
+[node name="Score" type="Label" parent="Computer" unique_id=354816893]
+z_index = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -1130.3174
+offset_top = -840.149
+offset_right = -959.3174
+offset_bottom = -781.149
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 40
+text = "SCORE: 0"
+
+[node name="GameOver" parent="Computer/Score" unique_id=1152032769 instance=ExtResource("7_xpvfh")]
 
 [node name="Button" type="Button" parent="." unique_id=1251612559]
 z_index = 10
@@ -48,5 +65,6 @@ wait_time = 1.5
 stream = ExtResource("7_vc5od")
 autoplay = true
 
+[connection signal="hit" from="Computer/Ground" to="." method="_on_ground_hit"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="timeout" from="Pipe_timer" to="." method="_on_pipe_timer_timeout"]
