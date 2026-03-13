@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var falling_key = preload("res://assets/rhytm/objects/falling_key.tscn")
+@onready var score_text = preload("res://assets/rhytm/objects/score_press_text.tscn")
 @export var key_name: String = ""
 
 var falling_key_queue = []
@@ -42,6 +43,10 @@ func _process(delta: float) -> void:
 
 
 			key_to_pop.queue_free()
+			
+			
+			var st_inst = score_text.instantiate() 
+			get_tree().get_root.call_deferred("add_child", st_inst)
 
 func CreateFallingKey():
 	var fk_inst = falling_key.instantiate()
