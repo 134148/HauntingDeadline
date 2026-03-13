@@ -22,32 +22,43 @@ var ok_press_score: float = 20
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if falling_key_queue.size() > 0: 
+		
+		
 		if falling_key_queue.front().has_passed:
 			falling_key_queue.pop_front()
+			
+			var st_inst = score_text.instantiate() 
+			get_tree().get_root().call_deferred("add_child", st_inst)
+			st_inst.SetTextInfo("press_score_text")
+			st_inst.global_position = global_position + Vector2(0, -15) 
+
 	
 		if Input.is_action_just_pressed(key_name):
 			var key_to_pop = falling_key_queue.pop_front()
 			
 			var distance_from_pass = abs(key_to_pop.pass_threshold - key_to_pop.global_position.y)
 			
+			var press_score_text: String = ""
 			if distance_from_pass < perfect_press_threshold: 
 				Signals.IncrementScore.emit(perfect_press_threshold)
+				press_score_text = "PERFECT!"
 			elif distance_from_pass < great_press_threshold: 
 				Signals.IncrementScore.emit(great_press_threshold)
+				press_score_text = "GREAT!"
 			elif distance_from_pass < good_press_threshold: 
 				Signals.IncrementScore.emit(good_press_threshold)
+				press_score_text = "GOOD!"
 			elif distance_from_pass < ok_press_threshold: 
 				Signals.IncrementScore.emit(ok_press_threshold)
+				press_score_text = "OK!"
 			else:
+				press_score_text = "MISS!"
 				pass
 
 
 			key_to_pop.queue_free()
 			
 			
-			var st_inst = score_text.instantiate() 
-			get_tree().get_root.call_deferred("add_child", st_inst)
-
 func CreateFallingKey():
 	var fk_inst = falling_key.instantiate()
 	get_tree().get_root().call_deferred("add_child", fk_inst)
