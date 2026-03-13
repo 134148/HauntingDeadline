@@ -15,6 +15,9 @@ size = Vector2(75, 27)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ss4sx"]
 size = Vector2(61, 519)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_arpqm"]
+size = Vector2(46.5, 190.125)
+
 [node name="Pipe" type="Area2D" unique_id=1926306371]
 script = ExtResource("1_arpqm")
 
@@ -44,4 +47,11 @@ shape = SubResource("RectangleShape2D_tdldm")
 position = Vector2(7, 391.5)
 shape = SubResource("RectangleShape2D_ss4sx")
 
+[node name="ScoreArea" type="Area2D" parent="." unique_id=196252388]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScoreArea" unique_id=1777138368]
+position = Vector2(71.75, -3.0625)
+shape = SubResource("RectangleShape2D_arpqm")
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="ScoreArea" to="." method="_on_score_area_body_entered"]

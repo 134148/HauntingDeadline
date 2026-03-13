@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dmf0w03uoorpc" path="res://assets/Interior free/TopDownHouse_FurnitureState1.png" id="7_45iqu"]
 [ext_resource type="Texture2D" uid="uid://crfsgn6jvsoqx" path="res://assets/Interior free/TopDownHouse_FurnitureState2.png" id="8_akcei"]
 [ext_resource type="Texture2D" uid="uid://6m2y8vhac752" path="res://assets/Interior free/TopDownHouse_SmallItems.png" id="9_kleng"]
+[ext_resource type="AudioStream" uid="uid://cwj2xwj8kpwd0" path="res://assets/music/Clement Panchout_ Forest Of A Thousand Masks.wav" id="11_aafuq"]
 
 [sub_resource type="Theme" id="Theme_we0q3"]
 
@@ -3685,6 +3686,12 @@ offset_top = -282.0
 offset_right = 276.0
 offset_bottom = 241.0
 color = Color(0.012617188, 0.012617188, 0.012617188, 1)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=541301176]
+stream = ExtResource("11_aafuq")
+autoplay = true
+
+[node name="Sound_effects" type="AudioStreamPlayer2D" parent="." unique_id=1833742585]
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

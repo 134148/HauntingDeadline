@@ -25,6 +25,7 @@ func new_game():
 	game_over = false
 	score = 0
 	scroll = 0
+	$Computer/Score.text = "SCORE: " + str(score)
 	pipes.clear()
 	#generate pipes
 	generate_pipes()
@@ -32,26 +33,27 @@ func new_game():
 	
 func _input(event):
 	if game_over == false:
-		if event is InputEventMouseButton:
-			if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-				if game_running == false:
-					start_game()
-				else:
-					if $Computer/Bird.flying:
-						$Computer/Bird.flap()
+		if Input.is_action_just_pressed("space"):
+			if game_running == false:
+				start_game()
+			else:
+				if $Computer/Bird.flying:
+					$Computer/Bird.flap()
+					check_top()
+
 						
 func start_game():
 	game_running = true
 	$Computer/Bird.flying = true
 	$Computer/Bird.flap()
 	$Pipe_timer.start()
-	
+
 func _process(delta) :
 	if game_running:
 	
+	
 		for ground in $Computer/Ground.get_children():
 			ground.position.x -= SCROLL_SPEED
-		
 			if ground.position.x < -ground.texture.get_width():
 				ground.position.x += ground.texture.get_width() * 2
 		
@@ -81,9 +83,30 @@ func generate_pipes():
 	var pipe_y = (screen_size.y - ground_height) / 2
 	pipe.position.y = pipe_y + randi_range(-PIPE_RANGE, PIPE_RANGE)
 	pipe.hit.connect(bird_hit)
+	pipe.scored.connect(scored)
 	add_child(pipe)
 	pipes.append(pipe)
 
+func scored():
+	score += 1
+	$Computer/Score.text = "SCORE " + str(score)
+	
+func check_top():
+	if $Computer/Bird.position.y < -600:
+		$Computer/Bird.falling = true
+		stop_game()
+
+func stop_game():
+	$Pipe_timer.stop()
+	$Computer/Bird.flying = false
+	game_running = false
+	game_running = true
+
 	
 func bird_hit():
-	pass
+	$Computer/Bird.falling = true
+	stop_game()
+
+func _on_ground_hit() -> void:
+	$Computer/Bird.falling = false
+	stop_game()

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://wc2kffpqglvh"
+path="res://.godot/imported/audiopapkin-monster-footsteps-on-gravel-295850.mp3-cad2b6e40b94d01982ceffb280de3fde.mp3str"
+
+[deps]
+
+source_file="res://assets/sound effects/audiopapkin-monster-footsteps-on-gravel-295850.mp3"
+dest_files=["res://.godot/imported/audiopapkin-monster-footsteps-on-gravel-295850.mp3-cad2b6e40b94d01982ceffb280de3fde.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
