@@ -1,17 +1,12 @@
 [gd_scene format=3 uid="uid://c4ln1w65eptu1"]
 
 [ext_resource type="PackedScene" uid="uid://cn7fjkfynxoeo" path="res://assets/rhytm/objects/keylistener.tscn" id="1_qc6i3"]
-[ext_resource type="PackedScene" uid="uid://dx7n54go43cpd" path="res://assets/rhytm/objects/falling_key.tscn" id="2_sklrn"]
 
 [node name="GameLevel" type="Node2D" unique_id=1618758073]
 position = Vector2(8, 4)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=187676617]
 position = Vector2(-3, 5)
-
-[node name="FallingKey" parent="." unique_id=262694065 instance=ExtResource("2_sklrn")]
-position = Vector2(-120, -360)
-scale = Vector2(1.1206896, 1)
 
 [node name="Keylistener" parent="." unique_id=1677466425 instance=ExtResource("1_qc6i3")]
 use_parent_material = true
