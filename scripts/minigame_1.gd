@@ -25,8 +25,11 @@ func new_game():
 	game_over = false
 	score = 0
 	scroll = 0
+	
+	for pipe in pipes:
+		pipe.queue_free()
 	pipes.clear()
-	#generate pipes
+	
 	generate_pipes()
 	$Computer/Bird.reset()
 	
@@ -42,22 +45,34 @@ func _input(event):
 						
 func start_game():
 	game_running = true
-	$Computer/Bird.flying = true
-	$Computer/Bird.flap()
+	$Computer/Bird.flying = true   # start flying
+	$Computer/Bird.flap()          # eerste flap
 	$Pipe_timer.start()
 	
-func _process(delta) :
+func _process(delta):
 	if game_running:
-	
+
+		# Scroll de grond
 		for ground in $Computer/Ground.get_children():
 			ground.position.x -= SCROLL_SPEED
-		
 			if ground.position.x < -ground.texture.get_width():
 				ground.position.x += ground.texture.get_width() * 2
-		
-		for pipe in pipes:
+
+		# Scroll en verwijder pipes
+		for pipe in pipes.duplicate():
 			pipe.position.x -= SCROLL_SPEED
-	
+			if pipe.position.x < -100:
+				pipes.erase(pipe)
+				pipe.queue_free()
+
+		# Check bird tegen bovenkant scherm
+		var bird = $Computer/Bird
+		var bird_height = 16
+
+		if bird.position.y - bird_height < 0:
+			stop_game()
+		elif bird.position.y + bird_height > screen_size.y - ground_height:
+			stop_game()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -84,6 +99,14 @@ func generate_pipes():
 	add_child(pipe)
 	pipes.append(pipe)
 
+func stop_game():
+	$Pipe_timer.stop()
+	$Computer/Bird.flying = false
+	game_running = false
+	game_over = true
+	
+
 	
 func bird_hit():
-	pass
+	$Computer/Bird.falling = true
+	stop_game()
