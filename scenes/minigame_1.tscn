@@ -12,8 +12,8 @@ script = ExtResource("1_tk6fs")
 pipe_scene = ExtResource("2_j1cg4")
 
 [node name="Computer" type="Sprite2D" parent="." unique_id=356766241]
-position = Vector2(162.05351, 251.87134)
-scale = Vector2(0.25863886, 0.24471167)
+position = Vector2(260.20508, 328.1113)
+scale = Vector2(0.35229495, 0.3012695)
 texture = ExtResource("2_lmjug")
 offset = Vector2(1000, 700)
 
@@ -28,6 +28,7 @@ position = Vector2(211.76581, -37.063477)
 scale = Vector2(0.99999994, 0.99999994)
 
 [node name="Ground" parent="Computer" unique_id=279048536 instance=ExtResource("5_fa05o")]
+z_index = 1
 position = Vector2(-541.5022, -2504.463)
 scale = Vector2(3.850288, 4.1181583)
 
