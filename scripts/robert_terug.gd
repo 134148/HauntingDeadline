@@ -10,18 +10,24 @@ var player_in_area = false
 var dead := false
 @onready var text_display = %TheTekst
 
+func restart_scene():
+	$Sound_effects.stream = load("res://assets/sound effects/mixkit-retro-arcade-casino-notification-211.wav")
+	$Sound_effects.play()
+	await get_tree().create_timer(0.5).timeout
+	get_tree().change_scene_to_file("res://scenes/endgame.tscn")
+
 #geheime doorgang niet te zien
 func _ready() -> void:
-	$Sound_effects.stream = load("res://assets/sound effects/freesound_community-monster-howl-85304.mp3")
-	$Sound_effects.play()
-	await $Sound_effects.finished
-	$AudioStreamPlayer2D.stream = load("res://assets/music/Space Horror Boss Music _Clement Panchout.wav")
-	$AudioStreamPlayer2D.play()
 	for child in %DoorgangTilemap.get_children():
 		child.hide()
 	%YouDied.hide()
 	%TijdDisplay.show()
 	%RestartText.hide()
+	$Sound_effects.stream = load("res://assets/sound effects/freesound_community-monster-howl-85304.mp3")
+	$Sound_effects.play()
+	await $Sound_effects.finished
+	$AudioStreamPlayer2D.stream = load("res://assets/music/Space Horror Boss Music _Clement Panchout.wav")
+	$AudioStreamPlayer2D.play()
 
 #check of player in area
 func _on_volgende_level_body_entered(body):
@@ -59,7 +65,7 @@ func _process(delta):
 	
 	#Volgende level
 	if player_in_area and Input.is_action_just_pressed("space"):
-		get_tree().change_scene_to_file("res://scenes/endgame.tscn")
+		restart_scene() 
 		
 	# Reload als dood
 	if dead and Input.is_action_just_pressed("space"):
